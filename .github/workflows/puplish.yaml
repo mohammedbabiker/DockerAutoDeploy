@@ -33,6 +33,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: ghcr.io/mohammedbabiker/docker-auto-deploy:${{ github.sha }}
+          tags: ghcr.io/${{ env.IMAGE_NAME }}:${{ github.sha }}
           secrets: |
             GIT_AUTH_TOKEN=${{ secrets.GHCR_TOKEN }}
