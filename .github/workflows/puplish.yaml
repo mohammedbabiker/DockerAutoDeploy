@@ -30,13 +30,9 @@ jobs:
           password: ${{ secrets.GHCR_TOKEN }}
 
       - name: Build and push Docker image
-        id: build-and-push
         uses: docker/build-push-action@v6
         with:
-          context: .
           push: true
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
           tags: ghcr.io/mohammedbabiker/docker-auto-deploy:${{ github.sha }}
           secrets: |
             GIT_AUTH_TOKEN=${{ secrets.GHCR_TOKEN }}
